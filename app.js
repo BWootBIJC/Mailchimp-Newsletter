@@ -3,6 +3,9 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const https = require("https");
 const app = express();
+import listId from 'authentication.js';
+import apiKey from 'authentication.js';
+
 
 
 //This must be used to get data from a post
@@ -32,9 +35,7 @@ app.post("/signup", function(req,res){
         ]
     }    
     const jsonData = JSON.stringify(data);
-    const apiKey = "2eb5f6713ca9ad3e7389e21c09561eaf-us5";
-    const audienceId = "71d7521168";
-    const url = `https://us5.api.mailchimp.com/3.0/lists/${audienceId}`;
+    const url = `https://us5.api.mailchimp.com/3.0/lists/${listId}`;
     const options = {
         method: "POST",
         auth: `Bryant Wooters:${apiKey}`,
