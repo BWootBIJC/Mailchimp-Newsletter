@@ -48,7 +48,7 @@ app.post("/signup", function(req,res){
             }
         })
     })
-    //request.write(jsonData);
+    request.write(jsonData);
     request.end();
 })
 
@@ -57,8 +57,7 @@ app.post("/failure", function(req, res){
 })
 
 
-app.listen(3000, function(req, res){
-    console.log("Server is running on port 3000.");
+app.listen(process.env.PORT || 3000, function(req, res){
+    console.log(`The server is listening on port ${process.env.PORT}`);
 })
-
 
